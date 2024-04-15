@@ -1,7 +1,6 @@
 import React from "react";
 
 import { generateEmojiGrid } from "../../../lib/game-helpers";
-import CountdownToNextPuzzle from "../../CountdownToNextPuzzle";
 import ShareScoreButton from "../../ShareScoreButton";
 import BaseModal from "../BaseModal";
 import { GameStatusContext } from "../../../providers/GameStatusProvider";
@@ -30,7 +29,6 @@ function ViewResultsModal() {
           {"\n"}
           {generateEmojiGrid(gameData, submittedGuesses)}
         </span>
-        <CountdownToNextPuzzle />
       </div>
     </BaseModal>
   );
