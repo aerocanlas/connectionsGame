@@ -29,7 +29,7 @@ export const CONNECTION_GAMES = [
       difficulty: 1,
     },
     {
-      category: "Browser Dev Tools",
+      category: "Browser Development Tools",
       words: ["Elements", "Console", "Application", "Network"],
       difficulty: 2,
     },
