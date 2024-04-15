@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { shuffleGameData } from "../../lib/game-helpers";
 import GameGrid from "../GameGrid";
 import NumberOfMistakesDisplay from "../NumberOfMistakesDisplay";
@@ -11,6 +11,7 @@ import ConfettiExplosion from "react-confetti-explosion";
 import { PuzzleDataContext } from "../../providers/PuzzleDataProvider";
 import { GameStatusContext } from "../../providers/GameStatusProvider";
 import GameControlButtonsPanel from "../GameControlButtonsPanel";
+import { formatDuration, intervalToDuration } from 'date-fns';
 
 import ViewResultsModal from "../modals/ViewResultsModal";
 
@@ -60,18 +61,44 @@ function Game() {
     return () => window.clearTimeout(delayModalOpen);
   }, [isGameOver]);
 
+  const [startTime, setStartTime] = useState(Date.now());
+  const [currentTime, setCurrentTime] = useState(0);
+  const [timerRunning, setTimerRunning] = useState(true);
+
+  // Start the timer when the game starts
+  useEffect(() => {
+    if (timerRunning) {
+      const interval = setInterval(() => {
+        setCurrentTime(Date.now() - startTime);
+      }, 1000);  // Update the timer every second
+      return () => clearInterval(interval);
+    }
+  }, [timerRunning, startTime]);
+
+  // Stop the timer when the game ends
+  useEffect(() => {
+    if (isGameOver) {
+      setTimerRunning(false);
+    }
+  }, [isGameOver]);
+
+  const formatTime = (time) => {
+    return formatDuration(intervalToDuration({ start: 0, end: time }));
+  };
+  
   return (
     <>
-      <h3 className="text-xl text-center mt-4">
+      <h3 className="text-bold text-xl text-center mt-4 uppercase">
         Create {numCategories} groups of {categorySize}
       </h3>
 
       <div className={`game-wrapper`}>
         {isGameOver && isGameWon ? (
           <GameWonModal
-            open={isEndGameModalOpen}
-            submittedGuesses={submittedGuesses}
-          />
+          open={isEndGameModalOpen}
+          submittedGuesses={submittedGuesses}
+          timeElapsed={formatTime(currentTime)}
+        />
         ) : (
           <GameLostModal
             open={isEndGameModalOpen}

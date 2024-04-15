@@ -19,9 +19,9 @@ function InfoModal() {
       actionButtonText="Got It!"
     >
       <Tabs defaultValue="how-to-play">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-1">
           <TabsTrigger value="how-to-play">How To Play</TabsTrigger>
-          <TabsTrigger value="about-us">About Us</TabsTrigger>
+          {/* <TabsTrigger value="about-us">About Us</TabsTrigger> */}
         </TabsList>
         <TabsContent value="how-to-play">
           {" "}

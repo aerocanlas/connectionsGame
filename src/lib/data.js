@@ -1,13 +1,36 @@
 export const CONNECTION_GAMES = [
+  // [
+  //   {
+  //     category: "Programming Languages",
+  //     words: ["Ruby", "Python", "Java", "JavaScript"],
+  //     difficulty: 1,
+  //   },
+  //   {
+  //     category: "CSS Display Values",
+  //     words: ["Flex", "Table", "Block", "Grid"],
+  //     difficulty: 2,
+  //   },
+  //   {
+  //     category: "SQL Keywords",
+  //     words: ["Alter", "Join", "Limit", "Create"],
+  //     difficulty: 3,
+  //   },
+
+  //   {
+  //     category: "Browser Dev Tools",
+  //     words: ["Elements", "Console", "Application", "Network"],
+  //     difficulty: 4,
+  //   },
+  // ],
   [
-    {
-      category: "Programming Languages",
-      words: ["Ruby", "Python", "Java", "JavaScript"],
-      difficulty: 1,
-    },
     {
       category: "CSS Display Values",
       words: ["Flex", "Table", "Block", "Grid"],
+      difficulty: 1,
+    },
+    {
+      category: "Browser Dev Tools",
+      words: ["Elements", "Console", "Application", "Network"],
       difficulty: 2,
     },
     {
@@ -15,35 +38,12 @@ export const CONNECTION_GAMES = [
       words: ["Alter", "Join", "Limit", "Create"],
       difficulty: 3,
     },
-
     {
-      category: "Browser Dev Tools",
-      words: ["Elements", "Console", "Application", "Network"],
+      category: "JavaScript Libraries",
+      words: ["jQuery", "Lodash", "Moment.js", "Axios"],
       difficulty: 4,
     },
   ],
-  // [
-  //   {
-  //     category: "Countries in West Africa",
-  //     words: ["Nigeria", "Cameroon", "Togo", "Benin"],
-  //     difficulty: 1,
-  //   },
-  //   {
-  //     category: "Countries in East Africa",
-  //     words: ["Tanzania", "Kenya", "Ethiopia", "Somalia"],
-  //     difficulty: 2,
-  //   },
-  //   {
-  //     category: "Countries in North Africa",
-  //     words: ["Morocco", "Algeria", "Tunisia", "Libya"],
-  //     difficulty: 3,
-  //   },
-  //   {
-  //     category: "African Islands",
-  //     words: ["Madagascar", "Mauritius", "Comoros", "Mayotte"],
-  //     difficulty: 4,
-  //   },
-  // ],
   // [
   //   {
   //     category: "California Rappers",

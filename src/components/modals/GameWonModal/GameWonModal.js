@@ -3,10 +3,9 @@ import BaseModal from "../BaseModal";
 
 import { generateEmojiGrid } from "../../../lib/game-helpers";
 import ShareScoreButton from "../../ShareScoreButton";
-import CountdownToNextPuzzle from "../../CountdownToNextPuzzle";
 import { PuzzleDataContext } from "../../../providers/PuzzleDataProvider";
 
-function GameWonModal({ open, submittedGuesses }) {
+function GameWonModal({ open, submittedGuesses, timeElapsed  }) {
   const { gameData } = React.useContext(PuzzleDataContext);
 
   return (
@@ -18,12 +17,13 @@ function GameWonModal({ open, submittedGuesses }) {
     >
       <p>{"Great job, share your results!"}</p>
       <div className="justify-center">
-        {/* the whitespace: pre style makes the emoji grid appear with new lines character */}
         <span className="text-center whitespace-pre">
           {"\n"}
           {generateEmojiGrid(gameData, submittedGuesses)}
         </span>
-        <CountdownToNextPuzzle />
+        <div className="mt-4 text-lg">
+          {`Time Taken: ${timeElapsed}`}
+        </div>
       </div>
     </BaseModal>
   );
