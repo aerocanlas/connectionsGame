@@ -3,6 +3,7 @@ import BaseModal from "../BaseModal";
 
 import { generateEmojiGrid } from "../../../lib/game-helpers";
 import ShareScoreButton from "../../ShareScoreButton";
+import CountdownToNextPuzzle from "../../CountdownToNextPuzzle";
 import { PuzzleDataContext } from "../../../providers/PuzzleDataProvider";
 
 function GameWonModal({ open, submittedGuesses }) {
@@ -22,6 +23,7 @@ function GameWonModal({ open, submittedGuesses }) {
           {"\n"}
           {generateEmojiGrid(gameData, submittedGuesses)}
         </span>
+        <CountdownToNextPuzzle />
       </div>
     </BaseModal>
   );
